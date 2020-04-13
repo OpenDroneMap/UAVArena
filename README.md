@@ -13,7 +13,7 @@ If you want to add a new dataset, simply add the relevant folders in the `data` 
 ## Disclaimer
 
 While this is a neutral zone for evaluating the results of drone mapping software and we have performed processing following 
-the same standards / quality settings, we should disclose that UAV4GEO is actively involved in the development of ([ODM](https://github.com/OpenDroneMap/ODM)).
+the same standards / quality settings for all solutions, we should disclose that UAV4GEO is actively involved in the development of [ODM](https://github.com/OpenDroneMap/ODM).
 
 If you found a problem in one of the software results, submit a PR. 
 
