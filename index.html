@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui' />
+
+    <title>UAV Arena</title>
+    
+    <link rel="stylesheet" href="./libs/leaflet/leaflet.css" />
+    <script src="./libs/leaflet/leaflet.js"></script>
+    <script src="./libs/leaflet-side-by-side.js"></script>
+    
+    <link rel="stylesheet" href="./libs/bootstrap.min.css" />
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #map {
+            position: absolute;
+            top: 54px;
+            bottom: 0;
+            width: 100%;
+        }
+        #controls {
+            padding: 8px;
+            border-bottom: 1px solid black;
+            position: absolute;
+            top: 0;
+            height: 54px;
+            width: 100%;
+            overflow: hidden;
+        }
+        .dropdown-menu{
+            z-index: 100000;
+        }
+        .w-40{
+            width: 40%;
+        }
+        #note{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            font-size: 70%;
+            z-index: 1000000;
+            background: white;
+            padding: 2px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div id="note">
+        Made with ❤️ by <a target="_blank" href="https://uav4geo.com">UAV4GEO</a>. Edit this on <a target="_blank" href="https://github.com/uav4geo/uavarena">GitHub</a>.
+    </div>
+    <div id="controls">
+        <div class="row">
+            <div class="col-3 col-sm-2 text-left">
+                <select class="custom-select" id="leftEngine">
+                </select>
+            </div>
+            <div class="col-6 col-sm-8 text-center">
+                <select class="custom-select w-40" id="dataset">
+                </select>
+        
+                <select class="custom-select w-40" id="product">
+                    <option value="orthophoto">Orthophoto</option>
+                    <option value="dsm">DSM</option>
+                </select>
+            </div>
+            <div class="col-3 col-sm-2 text-right float-right">
+                <select class="custom-select" id="rightEngine">
+                </select>
+            </div>
+        </div>
+    </div>
+    <div id='map'></div>
+
+    <script>
+
+    </script>
+
+<script src="./libs/jquery-3.5.0.slim.min.js"></script>
+<script src="./libs/popper.min.js"></script>
+<script src="./libs/bootstrap.min.js"></script>
+<script src="./main.js"></script>
+
+</body>
+</html>

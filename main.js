@@ -1,0 +1,155 @@
+$(function(){
+    // To add new datasets:
+    // 1. Add the necessary folders in the repository
+    // 2. Add the proper entries below
+
+    var datasets = [
+        {
+            id: 'aukerman',
+            label: "Aukerman",
+            center: new L.LatLng(41.30442, -81.75232)
+        },
+        {
+            id: 'brighton_beach',
+            label: "Brighton Beach",
+            center: new L.LatLng(46.84261, -91.99402)
+        },
+        // {
+        //     id: 'sand_key',
+        //     label: "Sand Key",
+        //     center: new L.LatLng(46.84261, -91.99402)
+        // },
+    ];
+
+    var engines = [
+        {
+            id: "odm-0.9.9",
+            label: "ODM 0.9.9",
+            rightStart: true
+        },
+        {
+            id: "dronedeploy",
+            label: "Drone Deploy",
+            leftStart: true
+        },
+        {
+            id: "metashape",
+            label: "Metashape"
+        },
+        {
+            id: "pix4d",
+            label: "Pix4D"
+        }
+    ]
+
+    var map = L.map('map', {
+        zoom: 20,
+        center: datasets[0].center
+    });
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 99,
+        maxNativeZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+
+    // Populate datasets
+    var $dataset = $("#dataset");
+    $dataset.on('change', function(e){
+        updateLayers();
+        centerOnLayer();
+    });
+    
+    for (var i in datasets){
+        var d = datasets[i];
+        var $opt = $('<option value="' + d.id + '">' + d.label + '</option>');
+        
+        $dataset.append($opt);
+    }
+
+    // Populate engines
+    var $leftEngine = $("#leftEngine");
+    $leftEngine.on('change', function(e){
+        updateLayers();
+    });
+    var $rightEngine = $("#rightEngine");
+    $rightEngine.on('change', function(e){
+        updateLayers();
+    });
+    
+    for (var i in engines){
+        var e = engines[i];
+        var $opt = $('<option value="' + e.id + '"' + (e.rightStart ? 'selected' : '') + '>' + e.label + '</option>');
+        $rightEngine.append($opt);
+        
+        $opt = $('<option value="' + e.id + '"' + (e.leftStart ? 'selected' : '') + '>' + e.label + '</option>');
+        $leftEngine.append($opt);
+    }
+
+    var $product = $("#product");
+    $product.on("change", function(){
+        updateLayers();
+    });
+
+    // Create layers
+    var layers = {};
+    $leftEngine.children().each(function(){
+        var engineId = $(this).val();
+        $dataset.children().each(function(){
+            var datasetId = $(this).val();
+
+            $product.children().each(function(){
+                var productId = $(this).val();
+                console.log(productId);
+
+                layers[engineId + '|' + datasetId + '|' + productId] = L.tileLayer('/data/' + engineId +'/' + datasetId + '/' + productId + '/tiles/{z}/{x}/{y}.png', {
+                    noWrap: true,
+                    maxZoom: 99,
+                    maxNativeZoom: 21,
+                    tms: true
+                });
+            });
+        });
+    });
+
+    var sideBySide = L.control.sideBySide([], []).addTo(map);
+
+    var updateLayers = function(){
+        for (var k in layers){
+            map.removeLayer(layers[k]);
+        }
+        
+        var leftLayer = layers[$leftEngine.val() + '|' + $dataset.val() + '|' + $product.val()];
+        var rightLayer = layers[$rightEngine.val() + '|' + $dataset.val() + '|' + $product.val()];
+        
+        console.log(leftLayer, rightLayer);
+
+        if (leftLayer){
+            leftLayer.addTo(map);
+            sideBySide.setLeftLayers([leftLayer]);
+        }else{
+            sideBySide.setLeftLayers([]);
+        }
+
+        if (rightLayer){
+            rightLayer.addTo(map);
+            sideBySide.setRightLayers([rightLayer]);
+        }else{
+            sideBySide.setRightLayers([]);
+        }
+    };
+
+    var centerOnLayer = function(){
+        for (var k in datasets){
+            if (datasets[k].id === $dataset.val()){
+                map.panTo(datasets[k].center);
+                break;
+            }
+        }
+    };
+
+    updateLayers();
+    centerOnLayer();
+
+});
