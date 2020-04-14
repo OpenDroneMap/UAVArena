@@ -14,11 +14,11 @@ $(function(){
             label: "Brighton Beach",
             center: new L.LatLng(46.84261, -91.99402)
         },
-        // {
-        //     id: 'sand_key',
-        //     label: "Sand Key",
-        //     center: new L.LatLng(46.84261, -91.99402)
-        // },
+        {
+            id: 'sand_key',
+            label: "Sand Key",
+            center: new L.LatLng(27.95864, -82.83185)
+        },
     ];
 
     var engines = [
@@ -28,17 +28,21 @@ $(function(){
             rightStart: true
         },
         {
-            id: "dronedeploy",
-            label: "Drone Deploy",
+            id: "dronedeploy-2.59.0",
+            label: "Drone Deploy 2.59.0",
             leftStart: true
         },
         {
-            id: "metashape",
-            label: "Metashape"
+            id: "metashape-1.5.2",
+            label: "Metashape 1.5.2"
         },
         {
-            id: "pix4d",
-            label: "Pix4D"
+            id: "dronemapper-1.9",
+            label: "DroneMapper 1.9"
+        },
+        {
+            id: "pix4d-4.4.10",
+            label: "Pix4D 4.4.10"
         }
     ]
 
@@ -71,11 +75,35 @@ $(function(){
     // Populate engines
     var $leftEngine = $("#leftEngine");
     $leftEngine.on('change', function(e){
-        updateLayers();
+        if ($(this).val() !== $rightEngine.val()){
+            updateLayers();
+        }else{
+            var engId = null;
+            for (var k in engines){
+                if (engines[k].id !== $rightEngine.val()){
+                    engId = engines[k].id;
+                    break;
+                }
+            }
+            $(this).val(engId);
+            updateLayers();
+        }
     });
     var $rightEngine = $("#rightEngine");
     $rightEngine.on('change', function(e){
-        updateLayers();
+        if ($(this).val() !== $leftEngine.val()){
+            updateLayers();
+        }else{
+            var engId = null;
+            for (var k in engines){
+                if (engines[k].id !== $leftEngine.val()){
+                    engId = engines[k].id;
+                    break;
+                }
+            }
+            $(this).val(engId);
+            updateLayers();
+        }
     });
     
     for (var i in engines){
@@ -123,8 +151,6 @@ $(function(){
         var leftLayer = layers[$leftEngine.val() + '|' + $dataset.val() + '|' + $product.val()];
         var rightLayer = layers[$rightEngine.val() + '|' + $dataset.val() + '|' + $product.val()];
         
-        console.log(leftLayer, rightLayer);
-
         if (leftLayer){
             leftLayer.addTo(map);
             sideBySide.setLeftLayers([leftLayer]);
