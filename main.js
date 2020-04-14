@@ -131,7 +131,7 @@ $(function(){
                 var productId = $(this).val();
                 console.log(productId);
 
-                layers[engineId + '|' + datasetId + '|' + productId] = L.tileLayer('/data/' + engineId +'/' + datasetId + '/' + productId + '/tiles/{z}/{x}/{y}.png', {
+                layers[engineId + '|' + datasetId + '|' + productId] = L.tileLayer('data/' + engineId +'/' + datasetId + '/' + productId + '/tiles/{z}/{x}/{y}.png', {
                     noWrap: true,
                     maxZoom: 99,
                     maxNativeZoom: 21,
