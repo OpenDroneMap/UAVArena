@@ -129,9 +129,13 @@ $(function(){
 
             $product.children().each(function(){
                 var productId = $(this).val();
-                console.log(productId);
 
-                layers[engineId + '|' + datasetId + '|' + productId] = L.tileLayer('data/' + engineId +'/' + datasetId + '/' + productId + '/tiles/{z}/{x}/{y}.png', {
+                var prefix = "/";
+                if (window.location.href.toLowerCase().indexOf("opendronemap.github.io") !== -1){
+                    prefix = "/UAVArena/";
+                }
+
+                layers[engineId + '|' + datasetId + '|' + productId] = L.tileLayer(prefix + 'data/' + engineId +'/' + datasetId + '/' + productId + '/tiles/{z}/{x}/{y}.png', {
                     noWrap: true,
                     maxZoom: 99,
                     maxNativeZoom: 21,
