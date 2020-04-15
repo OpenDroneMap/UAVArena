@@ -41,6 +41,10 @@ $(function(){
             label: "DroneMapper 1.9"
         },
         {
+            id: "nodemicmac-0.0.1",
+            label: "NodeMICMAC 0.0.1"
+        },
+        {
             id: "pix4d-4.4.10",
             label: "Pix4D 4.4.10"
         }
