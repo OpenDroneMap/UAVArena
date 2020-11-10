@@ -25,6 +25,10 @@ $(function(){
         {
             id: "odm-0.9.9",
             label: "ODM 0.9.9",
+        },
+        {
+            id: "odm-2.1.1",
+            label: "ODM 2.1.1",
             rightStart: true
         },
         {
@@ -47,7 +51,7 @@ $(function(){
         {
             id: "pix4d-4.4.10",
             label: "Pix4D 4.4.10"
-        }
+        },
     ]
 
     var map = L.map('map', {
