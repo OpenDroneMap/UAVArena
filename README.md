@@ -2,7 +2,7 @@
 
 ## About
 
-This repository is a part of the [ODM](https://github.com/OpenDroneMap) project and exists to give the user a side by side comparision  of drone mapping software results compared side by side. feel free to compare the results between ODM, Drone Deploy, MetaSHape, DroneMapper and Pix4D.
+This repository is a part of the [ODM](https://github.com/OpenDroneMap) project and exists to give the user a comparision  of drone mapping software results compared side by side. feel free to compare the results between ODM, Drone Deploy, MetaShape, DroneMapper and Pix4D.
 
 Currently, comparision consists of Orthophoto and DSM only. 
 
