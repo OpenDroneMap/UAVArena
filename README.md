@@ -23,6 +23,8 @@ The results are processed for each software using using “medium quality” / d
 
 ## Contributing
 
+run ` python -m http.server 8080 ` from the project root, then open a web browser, if you want to view this project locally. this action requires `Python3`.
+
 If you want to add a new dataset, simply add the relevant folders in the `data` directory, edit `main.js`. The tiles can be generated using the instructions in `tile_commands.txt`.
 
 ## Disclaimer
