@@ -8,7 +8,7 @@ Currently, comparision consists of Orthophoto and DSM only.
 
 ![image](https://user-images.githubusercontent.com/1951843/79274054-f7156480-7e71-11ea-8a67-c78c1ae42ec4.png)
 
-## DataSets used
+## Datasets Used
 
 | Name | # Images | Size (MB) | Coordinates in EXIF | GCP File | RTK | Notes |
 | ------|----------|-----------|----------------------|---------------|----- | -- |
