@@ -3,8 +3,8 @@
       <Title>odm_orthophoto.tif</Title>
       <Abstract></Abstract>
       <SRS>EPSG:3857</SRS>
-      <BoundingBox minx="-81.75438318748620" miny="41.30296500524827" maxx="-81.75023153829750" maxy="41.30543310485251"/>
-      <Origin x="-81.75438318748620" y="41.30296500524827"/>
+      <BoundingBox minx="-81.75438794926279" miny="41.30296506832162" maxx="-81.75021738872292" maxy="41.30549495773734"/>
+      <Origin x="-81.75438794926279" y="41.30296506832162"/>
       <TileFormat width="256" height="256" mime-type="image/png" extension="png"/>
       <TileSets profile="mercator">
         <TileSet href="5" units-per-pixel="4891.96980937500030" order="5"/>
