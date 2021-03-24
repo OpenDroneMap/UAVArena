@@ -28,9 +28,13 @@ $(function(){
         },
         {
             id: "odm-2.1.1",
-            label: "ODM 2.1.1",
-            rightStart: true
+            label: "ODM 2.1.1"
         },
+	{
+            id: "odm-2.4.7",
+	    label: "ODM 2.4.7",
+	    rightStart: true
+	},
         {
             id: "dronedeploy-2.59.0",
             label: "Drone Deploy 2.59.0",
