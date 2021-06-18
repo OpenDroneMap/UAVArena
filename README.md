@@ -19,7 +19,7 @@ Currently, comparision consists of Orthophoto and DSM only.
 
 ## Methodology
 
-The results are processed for each software using using “medium quality” / default settings, 2 cm/px resolution.
+The results are processed for each software using “medium quality” / default settings, 2 cm/px resolution.
 
 ## Contributing
 
