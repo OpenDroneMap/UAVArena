@@ -33,6 +33,10 @@ $(function(){
 	{
             id: "odm-2.4.7",
 	    label: "ODM 2.4.7",
+	},
+	{
+	    id: "odm-2.8.0",
+	    label: "ODM 2.8.0",
 	    rightStart: true
 	},
         {
