@@ -3,8 +3,8 @@
       <Title>dsmcolored_hillshade.tif</Title>
       <Abstract></Abstract>
       <SRS>EPSG:3857</SRS>
-      <BoundingBox minx="-82.83265906856325" miny="27.95784236008640" maxx="-82.83100095731646" maxy="27.95942697100799"/>
-      <Origin x="-82.83265906856325" y="27.95784236008640"/>
+      <BoundingBox minx="-82.83249901119966" miny="27.95786168651238" maxx="-82.83097976515100" maxy="27.95939009715890"/>
+      <Origin x="-82.83249901119966" y="27.95786168651238"/>
       <TileFormat width="256" height="256" mime-type="image/png" extension="png"/>
       <TileSets profile="mercator">
         <TileSet href="5" units-per-pixel="4891.96980937500030" order="5"/>
